@@ -1,5 +1,7 @@
 # GPU Jupyter Keras Pytorch Docker Image
 A Docker image for GPU-enabled Keras and PyTorch notebook.
+Image is loaded with CUDA 10.0.
+
 
 ### Requirements
 
@@ -30,7 +32,7 @@ A `docker pull` will be automatically triggered by this command. This will show 
 Launch the container with jupyter in background:
 
 ```bash
-$ nvidia-docker run --it -d -p 8888:8888 -v /path/to/persistent/dir:/root/workspace wudaown/keras-pytorch-h5py
+$ nvidia-docker run --it -d -p 8888:8888 -v /path/to/persistent/dir:/root/workspace wudaown/gpu-jupyter-keras-pytorch
 ```
 
 where `-p 8888:8888` denotes the port mapping from host to container in the format of `-p hostPort:containerPort`.
@@ -38,6 +40,6 @@ where `-p 8888:8888` denotes the port mapping from host to container in the form
 By default, this will use TensorFlow as backend. If you prefer theano as backend, you can add an environment variable with:
 
 ```bash
-$ nvidia-docker run -it --rm -e KERAS_BACKEND='theano' wudaown/keras-pytorch-h5py bash
+$ nvidia-docker run -it --rm -e KERAS_BACKEND='theano' wudaown/gpu-jupyter-keras-pytorch bash
 ```
 
